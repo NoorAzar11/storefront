@@ -1,4 +1,3 @@
-
 'use strict';
 
 
@@ -35,110 +34,16 @@ const initialState = {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const categoriesReducer = (state = initialState, action) => {
-
   const { type, payload } = action;
-
   switch (type) {
-
     case 'ACTIVE':
-
       const categories = state.categories;
-
       const active = payload;
-
-
-
       return { categories, active };
     default :
       return state;
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default categoriesReducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
