@@ -1,13 +1,14 @@
+'use strict'; 
 
-'use strict';
 
-
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import categoriesReducer from './reducers/categories';
 import productsReducer  from './reducers/products';
 import cartReducer from './reducers/cart';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
+
+
+import thunk from 'redux-thunk';
 const reducers = combineReducers ({
   categories : categoriesReducer,
   products : productsReducer,
@@ -16,11 +17,10 @@ const reducers = combineReducers ({
 });
 
 const store = () => {
-  return createStore(reducers, composeWithDevTools());
+  return createStore(reducers, applyMiddleware(thunk));
 };
 
 export default store();
-
 
 
 

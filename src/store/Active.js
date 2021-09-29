@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 
 export const activeCategory = name => {
   return {
@@ -7,3 +7,40 @@ export const activeCategory = name => {
   };
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

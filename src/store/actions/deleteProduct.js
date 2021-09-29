@@ -1,6 +1,4 @@
-
-'use strict';
-
+'use strict'; 
 
 export const deleteProduct = product => {
   return {
@@ -8,21 +6,6 @@ export const deleteProduct = product => {
     payload: product,
   };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
