@@ -1,6 +1,6 @@
-'use strict';
+'use strict'; 
 
-const initialState = { cart: [], show: false, num: 0 };
+const initialState = { cart: [], num: 0 };
 
 const cartReducer = (state = initialState, action) => {
 
@@ -11,44 +11,55 @@ const cartReducer = (state = initialState, action) => {
 
       if (!state.cart.length) {
 
+        state.num=0;
         payload['item'] = 1;
+
         state.num += 1;
+
         state.cart.push(payload);
         return { ...state };
-      } else {
 
-        let located = false;
+
+      } else {
+        let thunkflag = false;
+
 
         for (let i = 0; i < state.cart.length; i++) {
-          if (payload.id === state.cart[i].id) {
+          if (payload._id === state.cart[i]._id) {
+
+
             state.num += 1;
             state.cart[i].item += 1;
-            located = true;
+            thunkflag = true;
           }
         }
-        if (!located) {
-
+        if (!thunkflag) {
           payload['item'] = 1;
           state.num += 1;
+
+
           state.cart.push(payload);
         }
         return { ...state };
       }
     case 'DELETE':
 
-      let located = false;
+
+      let flag = false;
 
 
-      for (let y = 0; y < state.cart.length; y++) {
 
-        if (payload.id === state.cart[y].id) {
-          if (state.cart[y].item > 1 && state.num > 0) {
-
+      for (let i = 0; i < state.cart.length; i++) {
+        if (payload._id === state.cart[i]._id) {
+          if (state.cart[i].item > 1 && state.num > 0) {
             state.num -= 1;
-            state.cart[y].item -= 1;
-            located = true;
+            state.cart[i].item -= 1;
+            flag = true;
             
-          } else if (state.cart[y].item === 1 && !located ) {
+
+
+            
+          } else if (state.cart[i].item === 1 && !flag ) {
             const deletedProduct = state.cart.filter(product => {
               
                 return product.name !== payload.name;
@@ -65,37 +76,6 @@ const cartReducer = (state = initialState, action) => {
   }
 };
 export default cartReducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

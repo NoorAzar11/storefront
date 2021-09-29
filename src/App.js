@@ -1,6 +1,4 @@
-
-
-'use strict';
+'use strict'; 
 
 
 import React from 'react';
@@ -8,29 +6,26 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Categories from './components/categories/Categories';
 import Products from './components/products/Products';
-// import Cart from './components/cart/Cart';
-import { Provider } from 'react-redux';
-import store from './store';
+
 
 
 function App() {
-
   return (
+    <>
+      <Header />
+      <main>
+        <Categories />
+        <Products />
+      </main>
+      <Footer />
+    </>
 
-    <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Categories/>
-       
-
-        <Products/>
-        <Footer />
-      </div>
-    </Provider>
   );
 }
 
 export default App;
+
+
 
 
 
